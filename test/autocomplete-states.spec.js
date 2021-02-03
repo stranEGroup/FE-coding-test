@@ -126,7 +126,7 @@ describe("filterStates", function () {
     it("should find the exact abbreviation match", function () {
       /* 
         Original test case: expect(filterStates("NE").slice()).to.eq("Nebraska");
-        Proposed test case: expect(filterStates("NE").slice(0,1)).to.include.members(["Nebraska"]);
+        Proposed test case: expect(filterStates("NE").slice(0,1)).to.eql(["Nebraska"]);
 
         The slice() method without parameters would return a deep copy of filterStates("NE"),
         which would return the entire search results list. 
@@ -135,9 +135,9 @@ describe("filterStates", function () {
         the exact abbreviation match. Therefore, we would need to return the first item in the
         list and test against that.
 
-        I propose to use this test case instead: expect(filterStates("NE").slice(0,1)).to.include.members(["Nebraska"]);
+        I propose to use this test case instead: expect(filterStates("NE").slice(0,1)).to.eql(["Nebraska"]);
       */
-      expect(filterStates("NE").slice(0, 1)).to.include.members(["Nebraska"]);
+      expect(filterStates("NE").slice(0, 1)).to.eql(["Nebraska"]);
     });
     it("should return states that start with the input text", function () {
       expect(filterStates("NE")).to.include.members([
