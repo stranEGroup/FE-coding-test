@@ -81,7 +81,7 @@ function filterStates(textEntered) {
     textEntered = textEntered.toLowerCase();
     // results matching exact abbreviation (case insensitive)
     statesList.forEach((state) => {
-      if (textEntered === state.abbrev) {
+      if (textEntered === state.abbrev.toLowerCase()) {
         searchResults.push(state.name);
       }
     });
