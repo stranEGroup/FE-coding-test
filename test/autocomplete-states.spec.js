@@ -78,6 +78,7 @@ function filterStates(textEntered) {
     return a.name.localeCompare(b.name);
   });
   if (textEntered) {
+    textEntered = textEntered.toLowerCase();
     // results matching exact abbreviation (case insensitive)
     statesList.forEach((state) => {
       if (textEntered === state.abbrev) {
@@ -90,14 +91,14 @@ function filterStates(textEntered) {
         state.name
           .substring(0, 2)
           .toLowerCase()
-          .includes(textEntered.toLowerCase())
+          .includes(textEntered)
       ) {
         searchResults.push(state.name);
       }
     });
     // results matching any part of state name
     statesList.forEach((state) => {
-      if (state.name.toLowerCase().includes(textEntered.toLowerCase())) {
+      if (state.name.toLowerCase().includes(textEntered)) {
         searchResults.push(state.name);
       }
     });
